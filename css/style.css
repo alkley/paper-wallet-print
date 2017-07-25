@@ -1,0 +1,300 @@
+@font-face {
+  font-family: "Ubuntu Mono";
+  src: url('../fonts/UbuntuMono-R.ttf');
+}
+@font-face {
+  font-family: "Ubuntu Condensed";
+  src: url('../fonts/Ubuntu-C.ttf');
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url('../fonts/Ubuntu-R.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+h2 {
+  margin: 0;
+  font-size: 12px;
+}
+.tab-pane {
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  padding: 20px;
+  background-color: white;
+}
+.page {
+  -webkit-print-color-adjust: exact; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#card-template,
+#share-card-template,
+#mnemonics-card-template {
+  display: none;
+}
+
+.share-value {
+  word-break: break-word;
+  padding: 3mm;
+  text-align: center;
+}
+.sharenum-container {
+  font-size: 32mm;
+  font-family: Ubuntu Condensed;
+  transform: scaleX(0.5);
+  margin-top: -25mm;
+}
+.card {
+  border: 1px solid black;
+  font-family: "Ubuntu Mono";
+  display: flex;
+  background-color: aqua;
+  font-size: 3mm;
+  page-break-inside: avoid;
+  display: inline-flex;
+}
+
+.qr {
+  background-color: white;
+  padding: 1.5mm;
+  border-radius: 2mm;
+  margin: 3mm;
+}
+.portrait > div {
+  width: 46mm;
+  height: 78mm;
+
+}
+.card > div {
+  border-left: dashed 1px #ccc;
+}
+
+.card > div:first-child {
+  border-left: none;
+}
+
+
+.portrait {
+  background-image: url(../images/bcg.png);
+  background-size: cover;
+  background-color: white;
+  height: 78mm;
+}
+
+.card-front{
+  position: relative;
+  /*  color: white;*/
+  padding: 2mm;
+
+}
+.card-back{
+  position: relative;
+  color: white;
+}
+.card-middle {
+  display: flex;
+  flex-direction: column;
+}
+.card-front ol{
+  /*color: white;*/
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 40px;
+  padding-left: 1.5em;
+  font-family: "Ubuntu Condensed";
+  font-size: 3.5mm;
+  font-weight: bold;
+}
+.card.portrait .card-front {
+  width: 46mm;
+  height: 78mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.card.portrait .card-back {
+  width: 46mm;
+  height: 78mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: dashed 1px #ccc;
+
+}
+.key-address {
+  width: 66mm;
+  position: absolute;
+  bottom: 1mm;
+  left: 1mm;
+  font-size: 3mm;
+  transform-origin: left top 0;
+  transform: translate(0,100%) rotate(270deg);
+  overflow-wrap: break-word;
+}
+
+.key-address.right {
+  right: 1mm;
+  left: initial;
+  transform-origin: right top 0;
+  transform: translate(0,100%) rotate(90deg);
+  text-align: right;
+  overflow-wrap: normal;
+}
+
+.key-private {
+  /*width: 76mm;*/
+  position: absolute;
+  bottom: 1mm;
+  left: 1mm;
+  /*font-size: 2.3mm;*/
+  transform-origin: left top 0;
+  transform: translate(0,100%) rotate(270deg);
+  overflow-wrap: break-word;
+}
+
+.key-private.right {
+  right: 1mm;
+  left: initial;
+  transform-origin: right top 0;
+  transform: translate(0,100%) rotate(90deg);
+  text-align: right;
+}
+
+.card h1 {
+  color: white;
+  margin: 0 0 4mm 0;
+  font-family: "Ubuntu Condensed"
+}
+.qr-private,.qr-seed, .qr-share {
+  height: 33mm;
+  width: 33mm;
+}
+.qr-private img,.qr-seed img, .qr-share img {
+  height: 30mm;
+  width:  30mm;
+}
+.qr-address {
+  height: 28mm;
+  width: 28mm;
+}
+.qr-address img {
+  height: 25mm;
+  width:  25mm;
+}
+.boxedtext {
+  width: 65%;
+  text-align: center;
+  font-size: 3mm;
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.8);
+  padding: 4px;
+  color:#000;
+  border-radius: 1mm;
+  word-wrap: break-word;
+}
+
+.boxedtextbig {
+  width: calc(100% - 6mm);
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 3mm;
+  margin: 0 3mm 3mm 3mm;
+  padding: 2mm;
+  text-align: center;
+}
+
+.amount {
+  width: 65%;
+  text-align: center;
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.5);
+  padding: 4px;
+  color:#000;
+  font-size: 6mm;
+  border-radius: 1mm;
+}
+.logo-l {
+  width: 100%;
+}
+.logo-l img {
+  width: 100%;
+}
+.logo-p {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  margin: 2mm;
+}
+.logo-p img {
+  max-height: 134px;
+  max-width:  calc(100% - 10mm);
+}
+.logo-r {
+  height: 100%;
+  width: calc(100% - 10mm);
+  margin: 5mm;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.logo-r img{
+  width: 100%;
+}
+.card-form {
+  display: flex;
+  font-family: Ubuntu;
+  font-size: 12px;
+  justify-content: center;
+  margin: 30px 0 10px 0;
+}
+.card-form > div {
+  width: 46mm;
+}
+
+#modalEdit {
+  position: fixed;
+  right: 0;
+  width: 100%;
+  top: 0;
+  overflow: scroll;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+@media print {
+  body {
+    background-color: inherit;
+  }
+  .page{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card-container {
+    display: table;
+    page-break-inside: avoid;
+  }
+  .container-fluid {
+    display: none;
+  }
+  .card-form {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+}
