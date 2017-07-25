@@ -34,6 +34,7 @@
             <li role="presentation" class="active"><a href="#tabWallets" aria-controls="tabWallets" role="tab" data-toggle="tab">Wallets</a></li>
             <li role="presentation"><a href="#tabMnem" aria-controls="tabMnem" role="tab" data-toggle="tab">Mnemonics</a></li>
             <li role="presentation"><a href="#tabSecrets" aria-controls="tabSecrets" role="tab" data-toggle="tab">Shared secrets</a></li>
+            <li role="presentation"><a href="#tabImport" aria-controls="tabImport" role="tab" data-toggle="tab">Import</a></li>
           </ul>
           <!-- PANES -->
           <div class="tab-content">
@@ -48,9 +49,12 @@
               </div>
               <button id="btnAddMnemonicCard"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
             </div>
-            <div role="tabpanel" class="tab-pane active" id="tabWallets">
+            <div role="tabpanel" class="tab-pane" id="tabImport">
               <label for="txtImport">Import</label>
               <textarea class="form-control" id="txtImport"></textarea>
+              <button id="btnImport">Import</button>
+            </div>
+            <div role="tabpanel" class="tab-pane active" id="tabWallets">
               <label for="selPreset">Preset</label>
               <select class="default-coin form-control" id="selPreset">
                 <option value="btc">btc</option>
@@ -87,7 +91,6 @@
                   <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showMemo"> show memo field
                 </label>
               </div>
-              <button id="btnImport">Import</button>
               <button id="btnAddWalletCard"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
             </div>
             <div role="tabpanel" class="tab-pane" id="tabSecrets">
@@ -124,7 +127,10 @@
     <div class="page"></div>
     <div class="container-fluid">
       <footer>
-        &copy; 2017
+        &copy; 2017 <br>
+        Donate:<br> 
+        ฿ 0000000000000000000000000000000000<br>
+        Ξ 0x0000000000000000000000000000000000000000<br>
       </footer>
     </div>
     <!-- Modal -->

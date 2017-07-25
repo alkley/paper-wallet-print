@@ -761,7 +761,7 @@ function reformat(str, num) {
 
 function loadModal(c) {
   var modal = $('#modalEdit');
-  modal.find("*[data-for]").hide();
+  modal.find('*[data-for]').hide();
   if (c.type === 'mnemonic') {
     modal.find("*[data-for*='m']").show();
   }
@@ -772,13 +772,13 @@ function loadModal(c) {
     modal.find("*[data-for*='s']").show();
   }
   modal.data('card', c);
-  modal.find(".card-input[data-forfield][type=text]").each(function (index) {
+  modal.find('.card-input[data-forfield][type=text]').each(function (index) {
     $(this).val(c[$(this).data('forfield')]);
   });
-  modal.find(".card-input[data-forfield][type=checkbox]").each(function (index) {
+  modal.find('.card-input[data-forfield][type=checkbox]').each(function (index) {
     $(this).prop('checked', c[$(this).data('forfield')]);
   });
-  modal.find(".cpicker[data-forfield]").each(function (index) {
+  modal.find('.cpicker[data-forfield]').each(function (index) {
     $(this).colorpicker('setValue', c[$(this).data('forfield')]);
   });
   c.template.css('position', 'fixed');
@@ -791,7 +791,7 @@ function loadModal(c) {
 
 function closeModal() {
   var c = $('#modalEdit').data('card');
-  c.template.removeAttr("style");
-  c.template.find('.card-form').removeAttr("style");
+  c.template.removeAttr('style');
+  c.template.find('.card-form').removeAttr('style');
   $('#modalEdit').hide();
 }
