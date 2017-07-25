@@ -517,33 +517,27 @@ $(document).ready(function () {
     template.data('cardObj', card);
   });
   $("#btnAddWalletCard").click(function () {
-    var obj = {
-      note: '',
-      memo: '',
-      address: '',
-      private: '',
-      showFront: $('.showFront').prop('checked') == true,
-      showMiddle: $('.showMiddle').prop('checked') == true,
-      showBack: $('.showBack').prop('checked') == true,
-      showMemo: $('.showMemo').prop('checked') == true,
-      coin: DEFAULTS[$('.default-coin').val()].coin,
-      amount: $('.default-amount').val() + ' ' + DEFAULTS[$('.default-coin').val()].symbol,
-      bcgColor: DEFAULTS[$('.default-coin').val()].bcgColor
-    };
-
     var template = $("#card-template").clone();
     template.removeAttr("id");
     template.appendTo(".page");
     var card = new Card(template);
     card.type = 'wallet';
 
+    card.showFront = $('.showFront').prop('checked') == true;
+    card.showMiddle = $('.showMiddle').prop('checked') == true;
+    card.showBack = $('.showBack').prop('checked') == true;
+    card.showMemo = $('.showMemo').prop('checked') == true;
+    card.bgColor = DEFAULTS[$('.default-coin').val()].bcgColor;
+
+    card.logoFront = DEFAULTS[$('.default-coin').val()].coin;
+    card.logoMiddle = DEFAULTS[$('.default-coin').val()].coin;
+    card.logoBack = DEFAULTS[$('.default-coin').val()].coin;
 
     card.title = "Wallet";
     card.amount = $('.default-amount').val() + ' ' + DEFAULTS[$('.default-coin').val()].symbol;
     card.mnemonic = $("#txtMnem").val();
-    card.memo = $("#txtNote").val();
+    card.memo = $('.default-memo').val();
     template.data('cardObj', card);
-
   });
 
   $("#btnImport").click(function () {

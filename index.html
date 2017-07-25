@@ -39,20 +39,20 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane" id="tabMnem">
               <div class="form-group">
-                <label for="exampleInputEmail1">Note</label>
+                <label for="txtNote">Note</label>
                 <input type="text" name="note" id="txtNote" class="form-control">
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Mnemonic phrases</label>
+                <label for="txtMnem">Mnemonic phrases</label>
                 <input type="text" name="mnemonic" id="txtMnem" class="form-control">
               </div>
               <button id="btnAddMnemonicCard"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
             </div>
             <div role="tabpanel" class="tab-pane active" id="tabWallets">
-              <label for="exampleInputPassword1">Import</label>
+              <label for="txtImport">Import</label>
               <textarea class="form-control" id="txtImport"></textarea>
-              <label for="exampleInputPassword1">Preset</label>
-              <select class="default-coin form-control">
+              <label for="selPreset">Preset</label>
+              <select class="default-coin form-control" id="selPreset">
                 <option value="btc">btc</option>
                 <option value="eth">eth</option>
                 <option value="etc">etc</option>
@@ -65,9 +65,9 @@
                 <option value="dash">DASH</option>
                 <option value="xmy">Myriad</option>
               </select>
-              <label for="exampleInputPassword1">Default amount</label>
+              <label>Default amount</label>
               <input type="text" class="default-amount form-control" value="0">
-              <label for="exampleInputPassword1">Default memo</label>
+              <label>Default memo</label>
               <input type="text" class="default-memo form-control" value="">
               show faces 
 
@@ -91,7 +91,7 @@
               <button id="btnAddWalletCard"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
             </div>
             <div role="tabpanel" class="tab-pane" id="tabSecrets">
-              <label for="exampleInputPassword1">Secrets (one per line)</label>
+              <label for="txtShares">Secrets (one per line)</label>
               <textarea class="form-control" id="txtShares"></textarea>
               <div class="checkbox">
                 <label>
@@ -108,7 +108,7 @@
                   <input type="checkbox" class="first3special" value="y" checked> group first 3 digits
                 </label>
               </div>
-              <label for="exampleInputPassword1">Group every n characters</label>
+              <label>Group every n characters</label>
               <input type="number" min="0" class="txtNumChars form-control" value="2">
               <button id="btnShares">Generate</button>
               <button id="btnAddSecret"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
