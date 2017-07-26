@@ -149,25 +149,39 @@
               <label>Title</label>
               <input type="text" class="card-input form-control" data-forfield="title">
             </div>
-            <div class="form-group" data-for="mws">
-              <label>Memo</label>
-              <input type="text" class="card-input form-control" data-forfield="memo">
+            <div class="col-md-2">
+              <div class="checkbox" data-for="mws">
+                <label>
+                  <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showMemo"> 
+                  show memo
+                </label>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="form-group" data-for="mws">
+                <label>Memo</label>
+                <input type="text" class="card-input form-control" data-forfield="memo">
+              </div>
             </div>
             <div class="form-group" data-for="m">
               <label>Mnemonic</label>
               <input type="text" class="card-input form-control" data-forfield="mnemonic">
             </div>
-            <div class="form-group" data-for="w">
-              Address 
-              <input type="text" class="card-input form-control" data-forfield="address" data-for="w">
+            <div class="col-md-6">
+              <div class="form-group" data-for="w">
+                Address 
+                <input type="text" class="card-input form-control" data-forfield="address" data-for="w">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" data-for="w">
+                Private key 
+                <input type="text" class="card-input form-control" data-forfield="privateKey" data-for="w">
+              </div>
             </div>
             <div class="form-group" data-for="w">
               Amount 
               <input type="text" class="card-input form-control" data-forfield="amount" data-for="w">
-            </div>
-            <div class="form-group" data-for="w">
-              Private key 
-              <input type="text" class="card-input form-control" data-forfield="privateKey" data-for="w">
             </div>
             <div class="form-group" data-for="s">
               Secret share 
@@ -185,23 +199,23 @@
               Group every n characters 
               <input type="text" class="card-input form-control" data-forfield="groupChars" data-for="s">
             </div>
-            <div class="form-group" data-for="w">
-              Logo front 
-              <input type="text" class="card-input form-control" data-forfield="logoFront" data-for="w">
+            <div class="col-md-4">
+              <div class="form-group" data-for="w">
+                Logo front 
+                <input type="text" class="card-input form-control" data-forfield="logoFront" data-for="w">
+              </div>
             </div>
-            <div class="form-group" data-for="w">
-              Logo middle 
-              <input type="text" class="card-input form-control" data-forfield="logoMiddle" data-for="w">
+            <div class="col-md-4">
+              <div class="form-group" data-for="w">
+                Logo middle 
+                <input type="text" class="card-input form-control" data-forfield="logoMiddle" data-for="w">
+              </div>
             </div>
-            <div class="form-group" data-for="w">
-              Logo back 
-              <input type="text" class="card-input form-control" data-forfield="logoBack" data-for="w">
-            </div>
-            <div class="checkbox" data-for="mws">
-              <label>
-                <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showMemo"> 
-                show memo
-              </label>
+            <div class="col-md-4">
+              <div class="form-group" data-for="w">
+                Logo back 
+                <input type="text" class="card-input form-control" data-forfield="logoBack" data-for="w">
+              </div>
             </div>
             <div class="checkbox" data-for="w">
               <label>
@@ -221,23 +235,31 @@
                 group first three
               </label>
             </div>
-            <div class="checkbox" data-for="mws">
-              <label>
-                <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showFront"> 
-                show front
-              </label>
-            </div>
-            <div class="checkbox" data-for="w">
-              <label>
-                <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showMiddle"> 
-                show middle
-              </label>
-            </div>
-            <div class="checkbox" data-for="mws">
-              <label>
-                <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showBack"> 
-                show back
-              </label>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="checkbox" data-for="mws">
+                  <label>
+                    <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showFront"> 
+                    show front
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="checkbox" data-for="ws">
+                  <label>
+                    <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showMiddle"> 
+                    show middle
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="checkbox" data-for="mws">
+                  <label>
+                    <input type="checkbox" class="showMemo card-input" value="y" checked data-forfield="showBack"> 
+                    show back
+                  </label>
+                </div>
+              </div>
             </div>
             <div class="checkbox" data-for="s">
               <label>
@@ -256,26 +278,35 @@
               <input type="text" value="Background-color" class="form-control" />
               <span class="input-group-addon"><i></i></span>
             </div>
-            Text color
-            <div class="input-group colorpicker-component cpicker" data-forfield="txtColor" data-for="mws">
-              <input type="text" value="Background-color" class="form-control" />
-              <span class="input-group-addon"><i></i></span>
+            <div class="col-md-6">
+              Text color
+              <div class="input-group colorpicker-component cpicker" data-forfield="txtColor" data-for="mws">
+                <input type="text" value="Background-color" class="form-control" />
+                <span class="input-group-addon"><i></i></span>
+              </div>
             </div>
-            Text color 2
-            <div class="input-group colorpicker-component cpicker" data-forfield="txtColor2" data-for="mws">
-              <input type="text" value="Background-color" class="form-control" />
-              <span class="input-group-addon"><i></i></span>
+            <div class="col-md-6">
+              Text color 2
+              <div class="input-group colorpicker-component cpicker" data-forfield="txtColor2" data-for="mws">
+                <input type="text" value="Background-color" class="form-control" />
+                <span class="input-group-addon"><i></i></span>
+              </div>
             </div>
-            QR color
-            <div class="input-group colorpicker-component cpicker" data-forfield="qrColor" data-for="mws">
-              <input type="text" value="Background-color" class="form-control" />
-              <span class="input-group-addon"><i></i></span>
+            <div class="col-md-6">
+              QR color
+              <div class="input-group colorpicker-component cpicker" data-forfield="qrColor" data-for="mws">
+                <input type="text" value="Background-color" class="form-control" />
+                <span class="input-group-addon"><i></i></span>
+              </div>
             </div>
-            QR back color
-            <div class="input-group colorpicker-component cpicker" data-forfield="qrBgColor" data-for="mws">
-              <input type="text" value="Background-color" class="form-control" />
-              <span class="input-group-addon"><i></i></span>
+            <div class="col-md-6">
+              QR back color
+              <div class="input-group colorpicker-component cpicker" data-forfield="qrBgColor" data-for="mws">
+                <input type="text" value="Background-color" class="form-control" />
+                <span class="input-group-addon"><i></i></span>
+              </div>
             </div>
+            <div style="clear:both;"></div>
           </div>
           <div class="modal-footer">
           </div>
@@ -354,6 +385,9 @@
         <div class="card-front card-face" style="padding: 0; justify-content: space-around;">
           <h1 class="output-title txt-color">SECRET</h1>
           <div class="sharenum-container txt-color"><span class="output-sharenumber">1</span><span class="output-showTotal">/<span class="output-sharestotal">10</span></span></div>
+        </div>
+        <div class="card-middle card-face">
+          <div class="output-memo boxedtextbig" style="margin: 3mm"></div>
         </div>
         <div class="card-back card-face">
           <div class="qr qr-share"></div>
