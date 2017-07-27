@@ -481,6 +481,11 @@ var DEFAULTS = {
     symbol: 'XMY',
     txtColor: '#000',
     bgImage: ''
+  },
+  'ttc': {
+    coin: 'ttc',
+    bcgColor: 'rgba(255,239,182,0.6)',
+    symbol: 'T'
   }
 };
 
