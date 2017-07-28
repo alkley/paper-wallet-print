@@ -6,7 +6,7 @@ function Card(t) {
   // Visual
   this._bgColor = 'rgba(0,0,0,0)';
   this._txtColor = 'rgba(255,255,255,1)';
-  this._txtColor2 = 'rgba(255,255,255,1)';
+  this._txtColor2 = 'rgba(0,0,0,1)';
   this._qrColor = '#000';
   this._qrBgColor = 'rgba(255,255,255,1)';
 
@@ -22,6 +22,7 @@ function Card(t) {
   // Common
   this._title = '';
   this._memo = '';
+  this._privateKey = '';
 
   // Mnemonic
   this._mnemonic = '';
@@ -29,14 +30,12 @@ function Card(t) {
   // Wallet
   this._address = '';
   this._amount = '';
-  this._privateKey = '';
   this._showAmount = true;
 
   // Secret
   this._shareNumber = 0;
   this._sharesTotal = 0;
   this._showSharesTotal = false;
-  this._shareValue = '';
   this._groupFirstThree = false;
   this._groupChars = 0;
   this._useHex = false;
@@ -126,6 +125,9 @@ Object.defineProperties(Card.prototype, {
       qropt.text = this._privateKey;
       t.find(".qr-private").empty();
       t.find(".qr-private").qrcode(qropt);
+      qropt.text = this._address;
+      t.find(".qr-address").empty();
+      t.find(".qr-address").qrcode(qropt);
     }
   },
   'qrBgColor': {
@@ -167,22 +169,22 @@ Object.defineProperties(Card.prototype, {
   },
   'shareValue': {
     get: function () {
-      return this._shareValue;
+      return this._privateKey;
     },
     set: function (y) {
-      this._shareValue = y;
+      this._privateKey = y;
       var t = this.template;
       if (this.groupFirstThree === true) {
         var first3 = y.substring(0, 3);
         var rest = y.substring(3);
         t.find(".output-sharevalue").html(first3 + "<br>" + reformat(rest, this.groupChars));
       } else {
-        t.find(".output-sharevalue").text(reformat(this._shareValue, this.groupChars));
+        t.find(".output-sharevalue").text(reformat(this._privateKey, this.groupChars));
       }
       var qropt = QR_OPT;
-      qropt.text = this._shareValue;
-      t.find(".qr-share").empty();
-      t.find(".qr-share").qrcode(qropt);
+      qropt.text = this._privateKey;
+      t.find(".qr-private").empty();
+      t.find(".qr-private").qrcode(qropt);
     }
   },
   'sharesTotal': {
@@ -201,7 +203,7 @@ Object.defineProperties(Card.prototype, {
     },
     set: function (x) {
       this._groupChars = x;
-      this.shareValue = this.shareValue;
+      this.shareValue = this.privateKey;
     }
   },
   'groupFirstThree': {
@@ -210,7 +212,7 @@ Object.defineProperties(Card.prototype, {
     },
     set: function (x) {
       this._groupFirstThree = x;
-      this.shareValue = this.shareValue;
+      this.shareValue = this.privateKey;
     }
   },
   'showSharesTotal': {
@@ -317,17 +319,17 @@ Object.defineProperties(Card.prototype, {
   },
   'mnemonic': {
     get: function () {
-      return this._mnemonic;
+      return this._privateKey;
     },
     set: function (y) {
-      this._mnemonic = y;
+      this._privateKey = y;
       var t = this.template;
       var qropt = QR_OPT;
-      qropt.text = this.mnemonic;
-      t.find(".qr-seed").empty();
-      t.find(".qr-seed").qrcode(qropt);
+      qropt.text = this._privateKey;
+      t.find(".qr-private").empty();
+      t.find(".qr-private").qrcode(qropt);
       t.find("#listMnem").empty();
-      var mnemonics = this.mnemonic.split(" ");
+      var mnemonics = this._privateKey.split(" ");
       $.each(mnemonics, function (val) {
         t.find("#listMnem").append("<li>" + mnemonics[val] + "</li>");
       });
@@ -746,8 +748,8 @@ function updateShareValue(v, t) {
   }
   var qropt = QR_OPT;
   qropt.text = v;
-  t.find(".qr-share").empty();
-  t.find(".qr-share").qrcode(qropt);
+  t.find(".qr-private").empty();
+  t.find(".qr-private").qrcode(qropt);
 }
 
 function updateShareTemplate(o, t) {
@@ -778,8 +780,8 @@ function updateShareTemplate(o, t) {
   }
   var qropt = QR_OPT;
   qropt.text = o.share;
-  t.find(".qr-share").empty();
-  t.find(".qr-share").qrcode(qropt);
+  t.find(".qr-private").empty();
+  t.find(".qr-private").qrcode(qropt);
   t.find(".card-face").css('background-color', 'rgba(142, 0, 0, 0.64)');
 
 }
