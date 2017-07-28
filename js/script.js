@@ -424,51 +424,61 @@ var QR_OPT = {
 /** Presets. */
 var DEFAULTS = {
   'btc': {
+    coinName: 'Bitcoin',
     coin: 'btc',
     bcgColor: 'rgba(255, 187, 106, 0.6)',
     symbol: '฿'
   },
   'zec': {
+    coinName: 'Zcash',
     coin: 'zec',
     bcgColor: 'rgba(61, 8, 11, 0.61)',
     symbol: 'ⓩ'
   },
   'dash': {
+    coinName: 'Dash',
     coin: 'dash',
     bcgColor: 'rgba(189,231,255,0.69)',
     symbol: 'Đ'
   },
   'eth': {
+    coinName: 'Ethereum',
     coin: 'eth',
     bcgColor: 'rgba(214, 160, 255, 0.61)',
     symbol: 'Ξ'
   },
   'doge': {
+    coinName: 'Dogecoin',
     coin: 'doge',
     bcgColor: 'rgba(255, 227, 104, 0.78)',
     symbol: 'Ð'
   },
   'etc': {
+    coinName: 'Ethereum Classic',
     coin: 'etc',
     bcgColor: 'rgba(255, 255, 255,1)',
     symbol: 'ξ'
   },
   'icn': {
+    coinName: 'Iconomi',
     coin: 'icn',
     bcgColor: 'rgba(228, 242, 255, 0.81)',
     symbol: 'ICN'
   },
   'icn2': {
+    coinName: 'Iconomi',
     coin: 'icn2',
     bcgColor: 'rgba(77, 110, 140, 1)',
     symbol: 'ICN'
   },
   'xlm': {
+    coinName: 'Stellar Lumens',
     coin: 'xlm',
     bcgColor: 'rgba(77, 110, 140, 1)',
     symbol: '*'
   },
   'xrp': {
+    coinName: 'Ripple',
     coin: 'xrp',
     bcgColor: 'rgba(197, 227, 255, 0.43)',
     symbol: 'Ʀ',
@@ -476,6 +486,7 @@ var DEFAULTS = {
     bgImage: ''
   },
   'xmy': {
+    coinName: 'Myriad',
     coin: 'xmy',
     bcgColor: 'rgba(197, 227, 255, 0.43)',
     symbol: 'XMY',
@@ -483,6 +494,7 @@ var DEFAULTS = {
     bgImage: ''
   },
   'ttc': {
+    coinName: 'TittieCoin',
     coin: 'ttc',
     bcgColor: 'rgba(255,239,182,0.6)',
     symbol: 'T'
@@ -702,6 +714,26 @@ $(document).ready(function () {
     $(".page").show();
   });
   $(".page").empty();
+
+  var selects = $.map(DEFAULTS, function (v, i) {
+    return [{val: i, label: v.coin.toUpperCase() + " - " + v.coinName}];
+  });
+  selects.sort(function (a, b) {
+    // if they are equal, return 0 (no sorting)
+    if (a.label == b.label) {
+      return 0;
+    }
+    if (a.label > b.label) {
+      // if a should come after b, return 1
+      return 1;
+    } else {
+      // if b should come after a, return -1
+      return -1;
+    }
+  });
+  for (var i = 0; i < selects.length; i++) {
+    $('<option/>').val(selects[i].val).html(selects[i].label).appendTo('#selPreset');
+  }
 }); // -- Document ready
 
 function updateShareValue(v, t) {
