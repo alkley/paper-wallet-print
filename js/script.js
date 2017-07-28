@@ -429,76 +429,96 @@ var DEFAULTS = {
     coinName: 'Bitcoin',
     coin: 'btc',
     bcgColor: 'rgba(255, 187, 106, 0.6)',
+    txtColor: 'rgba(255, 255, 255, 1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: '฿'
   },
   'zec': {
     coinName: 'Zcash',
     coin: 'zec',
     bcgColor: 'rgba(61, 8, 11, 0.61)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: 'ⓩ'
   },
   'dash': {
     coinName: 'Dash',
     coin: 'dash',
     bcgColor: 'rgba(189,231,255,0.69)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: 'Đ'
   },
   'eth': {
     coinName: 'Ethereum',
     coin: 'eth',
     bcgColor: 'rgba(214, 160, 255, 0.61)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: 'Ξ'
   },
   'doge': {
     coinName: 'Dogecoin',
     coin: 'doge',
     bcgColor: 'rgba(255, 227, 104, 0.78)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: 'Ð'
   },
   'etc': {
     coinName: 'Ethereum Classic',
     coin: 'etc',
     bcgColor: 'rgba(255, 255, 255,1)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: 'ξ'
   },
   'icn': {
     coinName: 'Iconomi',
     coin: 'icn',
     bcgColor: 'rgba(228, 242, 255, 0.81)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: 'ICN'
   },
   'icn2': {
     coinName: 'Iconomi',
     coin: 'icn2',
     bcgColor: 'rgba(77, 110, 140, 1)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: 'ICN'
   },
   'xlm': {
     coinName: 'Stellar Lumens',
     coin: 'xlm',
     bcgColor: 'rgba(77, 110, 140, 1)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: '*'
   },
   'xrp': {
     coinName: 'Ripple',
     coin: 'xrp',
     bcgColor: 'rgba(197, 227, 255, 0.43)',
-    symbol: 'Ʀ',
-    txtColor: '#000',
-    bgImage: ''
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
+    symbol: 'Ʀ'
   },
   'xmy': {
     coinName: 'Myriad',
     coin: 'xmy',
     bcgColor: 'rgba(197, 227, 255, 0.43)',
-    symbol: 'XMY',
-    txtColor: '#000',
-    bgImage: ''
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
+    symbol: 'XMY'
   },
   'ttc': {
     coinName: 'TittieCoin',
     coin: 'ttc',
     bcgColor: 'rgba(255,239,182,0.6)',
+    txtColor: 'rgba(255, 255, 255,1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: 'T'
   }
 };
@@ -546,14 +566,18 @@ $(document).ready(function () {
     card.showMiddle = $('.showMiddle').prop('checked') == true;
     card.showBack = $('.showBack').prop('checked') == true;
     card.showMemo = $('.showMemo').prop('checked') == true;
-    card.bgColor = DEFAULTS[$('.default-coin').val()].bcgColor;
+    
+    var preset = DEFAULTS[$('.default-coin').val()];
+    card.bgColor = preset.bcgColor;
+    card.txtColor = preset.txtColor;
+    card.txtColor2 = preset.txtColor2;
 
-    card.logoFront = DEFAULTS[$('.default-coin').val()].coin;
-    card.logoMiddle = DEFAULTS[$('.default-coin').val()].coin;
-    card.logoBack = DEFAULTS[$('.default-coin').val()].coin;
+    card.logoFront = preset.coin;
+    card.logoMiddle = preset.coin;
+    card.logoBack = preset.coin;
 
     card.title = "Wallet";
-    card.amount = $('.default-amount').val() + ' ' + DEFAULTS[$('.default-coin').val()].symbol;
+    card.amount = $('.default-amount').val() + ' ' + preset.symbol;
     card.mnemonic = $("#txtMnem").val();
     card.memo = $('.default-memo').val();
     template.data('cardObj', card);
