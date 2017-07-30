@@ -118,11 +118,22 @@
       <footer>
         &copy; 2017 <br>
         Donate:<br> 
-        ฿ 0000000000000000000000000000000000<br>
-        Ξ 0x0000000000000000000000000000000000000000<br>
+        ฿ <a href="#" data-coin="Bitcoin" data-toggle="modal" data-target=".modal-donate">1NyH1JUGbMi7LCjSFx9FHMYNDKkMcNvRRj</a><br>
+        Ξ <a href="#" data-coin="Ether" data-toggle="modal" data-target=".modal-donate">0xEb0fFbdF1Ac66AfE29EB04008DCDfcB8d94d8C7f</a><br>
+        Đ <a href="#" data-coin="Dogecoin" data-toggle="modal" data-target=".modal-donate">DDchoH9tBYEe4PRksLFh8qTQTCGjEoxRSX</a><br>
+        Ł <a href="#" data-coin="Litecoin" data-toggle="modal" data-target=".modal-donate">LQmfMEDqHGKKwts6JDpoBAkK8rGE5z8nfc</a><br>
       </footer>
     </div>
     <!-- Modal -->
+    <div class="modal fade modal-donate" tabindex="-1" role="dialog" aria-labelledby="modalDonate">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content" style="text-align: center;">
+          <div class="donate-title" style="padding: 15px 0 0 0; font-size: 24px;">Coin</div>
+          <div class="donate-qr" style="padding: 15px 0 0 0;"></div>
+          <div class="donate-address" style="padding: 10px; font-size: 10px;"></div>
+        </div>
+      </div>
+    </div>
     <div class="" id="modalEdit">
       <div style="width: 50%;
            position: fixed;

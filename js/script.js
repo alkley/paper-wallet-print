@@ -433,6 +433,14 @@ var DEFAULTS = {
     txtColor2: 'rgba(0, 0, 0, 1)',
     symbol: '฿'
   },
+  'ltc': {
+    coinName: 'Litecoin',
+    coin: 'ltc',
+    bcgColor: 'rgba(224,224,224,0.75)',
+    txtColor: 'rgba(255, 255, 255, 1)',
+    txtColor2: 'rgba(0, 0, 0, 1)',
+    symbol: 'Ł'
+  },
   'zec': {
     coinName: 'Zcash',
     coin: 'zec',
@@ -760,6 +768,22 @@ $(document).ready(function () {
   for (var i = 0; i < selects.length; i++) {
     $('<option/>').val(selects[i].val).html(selects[i].label).appendTo('#selPreset');
   }
+
+  $('.modal-donate').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var address = button.text();
+    var modal = $(this);
+    var qropt = {
+        render: 'image',
+        ecLevel: 'L',
+        size: 200
+    };
+    qropt.text = address;
+    modal.find('.donate-qr').empty();
+    modal.find('.donate-qr').qrcode(qropt);
+    modal.find('.donate-address').text(address);
+    modal.find('.donate-title').text(button.data('coin'));
+  })
 }); // -- Document ready
 
 function updateShareValue(v, t) {
