@@ -62,6 +62,7 @@ h2 {
   font-size: 3mm;
   page-break-inside: avoid;
   display: inline-flex;
+  overflow: hidden;
 }
 
 .qr {
@@ -72,7 +73,7 @@ h2 {
 }
 .portrait > div {
   width: 46mm;
-  height: 78mm;
+  height: 100%;
 
 }
 .card > div {
@@ -120,7 +121,7 @@ h2 {
 }
 .card.portrait .card-front {
   width: 46mm;
-  height: 78mm;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -128,7 +129,7 @@ h2 {
 }
 .card.portrait .card-back {
   width: 46mm;
-  height: 78mm;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,14 +138,15 @@ h2 {
 
 }
 .key-address {
-  width: 66mm;
+  /*width: 66mm;-*/
   position: absolute;
-  bottom: 1mm;
+  bottom: 2mm;
   left: 1mm;
-  font-size: 3mm;
+ /* font-size: 3mm;*/
   transform-origin: left top 0;
   transform: translate(0,100%) rotate(270deg);
   overflow-wrap: break-word;
+  font-weight: bold;
 }
 
 .key-address.right {
@@ -159,12 +161,13 @@ h2 {
 .key-private {
   /*width: 76mm;*/
   position: absolute;
-  bottom: 1mm;
+  bottom: 2mm;
   left: 1mm;
   /*font-size: 2.3mm;*/
   transform-origin: left top 0;
   transform: translate(0,100%) rotate(270deg);
   overflow-wrap: break-word;
+  font-weight: bold;
 }
 
 .key-private.right {
@@ -281,7 +284,8 @@ h2 {
     background-color: inherit;
   }
   .page{
-    display: flex;
+    display: block;
+    -webkit-display:flex;
     flex-wrap: wrap;
   }
   .card-container {

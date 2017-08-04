@@ -156,7 +156,7 @@ Object.defineProperties(Card.prototype, {
       var fontSize = 17;
       var ourText = t.find(".output-privatekey");
       var maxHeight = ourText.parent().width();
-      var maxWidth = ourText.parent().height() - 8;
+      var maxWidth = 276; //ourText.parent().height() - 8;
       var textHeight;
       var textWidth;
       do {
@@ -347,6 +347,19 @@ Object.defineProperties(Card.prototype, {
       t.find(".qr-address").empty();
       t.find(".qr-address").qrcode(qropt);
       t.find(".output-address").text(this._address);
+
+      var fontSize = 17;
+      var ourText = t.find(".output-address");
+      var maxHeight = ourText.parent().width();
+      var maxWidth = 221;//ourText.parent().height() - 8;
+      var textHeight;
+      var textWidth;
+      do {
+        ourText.css('font-size', fontSize);
+        textHeight = ourText.height();
+        textWidth = ourText.get()[0].scrollWidth;
+        fontSize = fontSize - 0.5;
+      } while ((textHeight > maxHeight || textWidth > maxWidth) && fontSize > 3);
     }
   },
   'logoFront': {
