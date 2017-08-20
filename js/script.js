@@ -540,7 +540,7 @@ var DEFAULTS = {
     bcgColor: 'rgba(255,239,182,0.6)',
     txtColor: 'rgba(255, 255, 255,1)',
     txtColor2: 'rgba(0, 0, 0, 1)',
-    symbol: 'T'
+    symbol: 'Ṫ'
   }
 };
 

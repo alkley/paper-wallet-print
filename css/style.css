@@ -279,6 +279,32 @@ h2 {
   display: none;
   background-color: rgba(0, 0, 0, 0.75);
 }
+.donateCurrenciesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.donateCurrenciesContainer > div {
+  margin: 8px;
+}
+.donateCurrencyIcon {
+  width: 20px;
+  height: 20px;
+  vertical-align: text-bottom;
+}
+
+.donateCurrencyIcon.btc {
+  fill:#f59323;
+}
+.donateCurrencyIcon.eth {
+  fill:#373737;
+}
+.donateCurrencyIcon.doge {
+  fill:#b8a12f;
+}
+.donateCurrencyIcon.ltc {
+  fill:#c7c8c9;
+}
 @media print {
   body {
     background-color: inherit;
