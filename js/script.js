@@ -577,6 +577,8 @@ $(document).ready(function () {
     card.memo = $("#txtNote").val();
     template.data('cardObj', card);
   });
+  
+  // Add a new wallet card.
   $("#btnAddWalletCard").click(function () {
     var template = $("#card-template").clone();
     template.removeAttr("id");
@@ -605,6 +607,7 @@ $(document).ready(function () {
     template.data('cardObj', card);
   });
 
+  
   $("#btnImport").click(function () {
     $(".page").empty();
     var lines = $("#txtImport").val().split("\n");
@@ -659,9 +662,12 @@ $(document).ready(function () {
   // Shamir secrets
   $("#btnShares").click(function () {
     $(".page").empty();
+    
+    // Split lines into array
     var lines = $("#txtShares").val().split("\n");
     var objs = [];
     var i = 0;
+    
     $.each(lines, function (k) {
       if (lines[k].trim()) {
         i++;
@@ -673,6 +679,7 @@ $(document).ready(function () {
       }
     });
 
+    // Create a card for each line
     $.each(objs, function (k) {
       objs[k].total = objs.length;
 
