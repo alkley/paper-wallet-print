@@ -565,6 +565,7 @@ $(document).ready(function () {
     }
   });
 
+  // Add new mnemonics card.
   $("#btnAddMnemonicCard").click(function () {
     var template = $("#mnemonics-card-template").clone();
     template.removeAttr("id");
@@ -655,6 +656,7 @@ $(document).ready(function () {
     });
   });
 
+  // Shamir secrets
   $("#btnShares").click(function () {
     $(".page").empty();
     var lines = $("#txtShares").val().split("\n");
@@ -782,6 +784,7 @@ $(document).ready(function () {
     $('<option/>').val(selects[i].val).html(selects[i].label).appendTo('#selPreset');
   }
 
+  // Show donation modal
   $('.modal-donate').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
     var address = button.text();
@@ -846,7 +849,9 @@ function updateShareTemplate(o, t) {
   t.find(".card-face").css('background-color', 'rgba(142, 0, 0, 0.64)');
 
 }
-
+/*
+Reformats 
+*/
 function reformat(str, num) {
   if (num == 0) {
     num = -1;
@@ -859,6 +864,9 @@ function reformat(str, num) {
   return reformat;
 }
 
+/*
+Loads modal for editing a single card.
+*/
 function loadModal(c) {
   var modal = $('#modalEdit');
   modal.find('*[data-for]').hide();
@@ -889,6 +897,9 @@ function loadModal(c) {
   modal.show();
 }
 
+/*
+Closes currently open modal dialog.
+*/
 function closeModal() {
   var c = $('#modalEdit').data('card');
   c.template.removeAttr('style');
