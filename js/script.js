@@ -235,6 +235,19 @@ Object.defineProperties(Card.prototype, {
         this.template.find(".output-memo").hide();
       }
     }
+  },  
+  'showTitle': {
+    get: function () {
+      return this._showTitle;
+    },
+    set: function (x) {
+      this._showTitle = x;
+      if (this._showTitle === true) {
+        this.template.find(".output-title").show();
+      } else {
+        this.template.find(".output-title").hide();
+      }
+    }
   },
   'useHex': {
     get: function () {
