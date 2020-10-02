@@ -718,6 +718,9 @@ $(document).ready(function () {
   $(document).on('dblclick', '.card', function (e) {
     loadModal($(this).closest('.card-container').data('cardObj'));
   });
+  $(document).on('click', '.btnCopy', function (e) {
+    addWallet($(this).closest('.card-container').data('cardObj'));
+  });
   /** Delete button onClick. */
   $(document).on('click', '.btnDel', function (e) {
     $(this).closest('.card-container').remove();
@@ -926,3 +929,57 @@ function closeModal() {
   c.template.find('.card-form').removeAttr('style');
   $('#modalEdit').hide();
 }
+
+  // Add a new wallet card.
+  function addWallet(cardObj) {
+    var template = $("#card-template").clone();
+    template.removeAttr("id");
+    template.appendTo(".page");
+    var tmp = cardObj.template;
+    cardObj.template = null;
+    var cardOld = JSON.parse(JSON.stringify(cardObj));
+    cardObj.template = tmp;
+    var card = new Card(template);
+    copyCard(card,cardOld);
+    template.data('cardObj', card);
+  }
+
+  function copyCard(c, t) {
+      c.type = t.type;
+      // Visual
+      c.bgColor = t._bgColor;
+      c.txtColor = t._txtColor;
+      c.txtColor2 = t._txtColor2;
+      c.qrColor = t._qrColor;
+      c.qrBgColor = t._qrBgColor;
+      c.logoFront = t._logoFront;
+      c.logoMiddle = t._logoMiddle;
+      c.logoBack = t._logoBack;
+      c.showMemo = t._showMemo;
+      c.showFront = t._showFront;
+      c.showMiddle = t._showMiddle;
+      c.showBack = t._showBack;
+    
+    
+      // Common
+      c.title = t._title;
+      c.memo = t._memo;
+      c.privateKey = t._privateKey;
+    
+      // Mnemonic
+      c.mnemonic = t._mnemonic;
+    
+      // Wallet
+      c.address = t._address;
+      c.amount = t._amount;
+      c.showAmount = t._showAmount;
+    
+      // Secret
+      c.shareNumber = t._shareNumber;
+      c.sharesTotal = t._sharesTotal;
+      c.showSharesTotal = t._showSharesTotal;
+      c.groupFirstThree = t._groupFirstThree;
+      c.groupChars = t._groupChars;
+      c.useHex = t._useHex;
+      c.showTotal = t._showTotal;
+  }
